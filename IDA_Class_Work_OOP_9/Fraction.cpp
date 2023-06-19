@@ -1,6 +1,11 @@
 #include "Fraction.h"
 
 //::::::::::::::::::::::::::::::Fraction:: Fraction:: Fraction:: Fraction:: Fraction:: Fraction:: Fraction:: Fraction::::::::::::::::::::::::::::::
+Fraction::Fraction(int A1, int A2, std::vector<Fraction*>& Available_fractions) : _numerator(A1), _denominator(A2)
+{
+	Available_fractions.push_back(this);
+	Fraction_reduction();
+}
 int Fraction::MaxCommonDivider(int a, int b)
 {
 	while (a > 0 && b > 0)
@@ -16,16 +21,22 @@ void Fraction::Fraction_reduction()
 	Set_numerator(Get_numerator() / max_common_divider);
 	Set_denominator(Get_denominator() / max_common_divider);
 }
-Fraction::Fraction(int A1, int A2, std::vector<Fraction*>& Available_fractions) : _numerator(A1), _denominator(A2)
-{
-	Available_fractions.push_back(this);
-	Fraction_reduction();
-}
 int Fraction::ShowMethods()
 {
 	std::cout << "\nAvailable methods:";
 	//std::cout << "\n1) Add\n2) Substract\n3) Multiply\n4) Divide\n";
-	std::cout << "\n1) Add\t2) Substract\t3) Multiply\t4) Divide\n";
+	std::cout << "\n1) Add\t" <<
+		"2) Substract\t" <<
+		"3) Multiply\t" <<
+		"4) Divide\t" <<
+		"5) Pre increment" << "\t" <<
+		"6) Post increment" << "\t" <<
+		"7) Pre decrement" << "\t" <<
+		"8) Post decrement" << "\t" <<
+		"9) Unary -" << "\t" <<
+		"10) Unary +" "\t";
+
+		std::cout << "\n";
 	//return Get_Int_Positive();
 	return 0;
 }
@@ -138,11 +149,12 @@ Fraction* Fraction::operator/(const Fraction& another_Fraction)
 }
 //??? как правильно объ€вить friend
 //Fraction* Fraction::operator+(const Fraction& Fraction_Operand_1, const Fraction& Fraction_Operand_2)
-Fraction* operator+(const Fraction& Fraction_Operand_1, const Fraction& Fraction_Operand_2)
-{
-	std::cout << "\n" << "var1 Using friend-function const& overload parameter, return pointer" << "\n";
-	int new_numerator = (Fraction_Operand_1._numerator) * (Fraction_Operand_2._denominator) + (Fraction_Operand_2._numerator) * (Fraction_Operand_1._denominator);
-	int new_denominator = (Fraction_Operand_1._denominator) * (Fraction_Operand_2._denominator);
-	Fraction* result_fraction = new Fraction(new_numerator, new_denominator);
-	return result_fraction;
+
+//Fraction* operator+( Fraction& Fraction_Operand_1, const Fraction& Fraction_Operand_2)
+//{
+//	std::cout << "\n" << "var1 Using friend-function const& overload parameter, return pointer" << "\n";
+//	int new_numerator = (Fraction_Operand_1._numerator)++;
+//	int new_denominator = (Fraction_Operand_1._denominator) * (Fraction_Operand_2._denominator);
+//	Fraction* result_fraction = new Fraction(new_numerator, new_denominator);
+//	return result_fraction;
 }

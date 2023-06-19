@@ -134,5 +134,10 @@ public:
 	Fraction* operator-(const Fraction& another_Fraction);
 	Fraction* operator*(const Fraction& another_Fraction);
 	Fraction* operator/(const Fraction& another_Fraction);
+
+	Fraction* operator++()
+	{
+
+	}
 };
 

@@ -133,8 +133,6 @@ do
 	Fraction Operand_2 = *Available_fractions[fraction_index_2];
 
 
-
-
 	//переработанный блок операций с использованием перегрузки арифметических операторов
 	switch (action)
 	{
@@ -147,6 +145,16 @@ do
 	case 3: Available_fractions.push_back(Operand_1 * Operand_2); break;
 		//case 4: Available_fractions[fraction_index_1]->Divide(*Available_fractions[fraction_index_2], Available_fractions); break;
 	case 4: Available_fractions.push_back(Operand_1 / Operand_2); break;
+	
+	
+	//case 5: Available_fractions.push_back(Operand_1 / Operand_2); break;
+	case 5: ++Operand_1; break;
+	case 6:	Operand_1++; break;
+	case 7: --Operand_1; break;
+	case 8: Operand_1--; break;
+	
+			"10) Unary -" << "\t" <<
+			"11) Unary +" "\t";
 	}
 	std::cout << "\nresult - > ";
 	Available_fractions[Available_fractions.size() - 1]->ShowValues();
