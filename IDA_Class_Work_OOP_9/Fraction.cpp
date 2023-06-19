@@ -157,4 +157,4 @@ Fraction* Fraction::operator/(const Fraction& another_Fraction)
 //	int new_denominator = (Fraction_Operand_1._denominator) * (Fraction_Operand_2._denominator);
 //	Fraction* result_fraction = new Fraction(new_numerator, new_denominator);
 //	return result_fraction;
-}
+//}
